@@ -14,7 +14,7 @@ def emotion_labels(row):
 def get_labeled_dfs():
 
 # used the tarfile ilbrary to open the tarfile and the getmembers() method to get a list of filenames
-	tar = tarfile.open('data/AffectiveText.Semeval.2007.tar')
+	tar = tarfile.open('/Users/flatironschool/Desktop/Final_Project/AffectiveText.Semeval.2007.tar')
 	members = tar.getmembers()
 	members
 

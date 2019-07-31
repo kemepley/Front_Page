@@ -1,6 +1,3 @@
-import warnings
-warnings.filterwarnings("ignore")
-
 import pandas as pd
 
 import requests
@@ -32,7 +29,7 @@ class front_page:
             soup = BeautifulSoup(request_npr.content, features="lxml")
             headlines = soup.findAll('h3', class_='title')
             npr_front_page = [i.text for i in headlines]
-            return npr_front_page
+            return list(set(npr_front_page))
             
         elif self.source == 'slate':
             
@@ -42,7 +39,7 @@ class front_page:
             slate_front_page = [i.text.replace('\n', '').strip() for i in headlines]
             slate_front_page = [i.replace('Podcast Episode', '') for i in slate_front_page]
             slate_front_page = [i.replace('\n', '').strip() for i in slate_front_page]
-            return slate_front_page
+            return list(set(slate_front_page))
         
         elif self.source == 'fox':
             
@@ -50,7 +47,7 @@ class front_page:
             soup = BeautifulSoup(request_fox.content, features="lxml")
             headlines = soup.findAll('h2', class_='title')
             fox_front_page = [i.text.replace('\n', '') for i in headlines]
-            return fox_front_page
+            return list(set(fox_front_page))
         
         elif self.source == 'breitbart':
             
@@ -70,7 +67,7 @@ class front_page:
                         title_checker.append(False)
                 if sum(title_checker)>1:
                     breitbart_front_page.append(i)
-            return breitbart_front_page
+            return list(set(breitbart_front_page))
         
         else:
             print("I don't know that source. Please choose: npr, slate, fox, or breitbart.")
@@ -87,7 +84,7 @@ class front_page:
         headline_list = self.get_headlines()
     
         # load saved model     
-        model = load_model('RNN_multiclass_emotion.h5')
+        model = load_model('model/RNN_multiclass_emotion.h5')
     
         # make headlines lowercase and remove punctuation (except '?' and '!')    
         corpus = pd.DataFrame({'text': headline_list})
@@ -135,16 +132,17 @@ class front_page:
         # print report
         
         plt.style.use('ggplot')
-        plt.figure(figsize=(10,5))
+        plt.figure(figsize=(12,5))
         
         plt.subplot(1,2,1)
-        norm = df_preds.sum()/len(headline_list)
+        norm = df_preds.sum().sort_values()/len(headline_list)
         norm.plot(kind='bar')
+        plt.xticks(rotation='horizontal')
         plt.title("Percentage of Headlines \nContaining Each Emotion")
         
         plt.subplot(1,2,2)
         polarity_df.boxplot()
-        plt.title('Positive, Negative, and Neutral \nWord Distributions')
+        plt.title("Positive, Negative, and Neutral \nWord Distributions")
         plt.show()
     
         for i,v in enumerate(headline_list):
@@ -176,7 +174,7 @@ class front_page:
         headline_list = self.get_headlines()
     
         # load saved model     
-        model = load_model('RNN_multiclass_emotion.h5')
+        model = load_model('model/RNN_multiclass_emotion.h5')
     
         # make headlines lowercase and remove punctuation (except '?' and '!')    
         corpus = pd.DataFrame({'text': headline_list})
@@ -224,15 +222,16 @@ class front_page:
         # print report
         
         plt.style.use('ggplot')
-        plt.figure(figsize=(10,5))
+        plt.figure(figsize=(12,5))
         
         plt.subplot(1,2,1)
-        norm = df_preds.sum()/len(headline_list)
+        norm = df_preds.sum().sort_values()/len(headline_list)
         norm.plot(kind='bar')
+        plt.xticks(rotation='horizontal')
         plt.title("Percentage of Headlines \nContaining Each Emotion")
         
         plt.subplot(1,2,2)
         polarity_df.boxplot()
-        plt.title('Positive, Negative, and Neutral \nWord Distributions')
+        plt.title("Positive, Negative, and Neutral \nWord Distributions")
         plt.show()
     
