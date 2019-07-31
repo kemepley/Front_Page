@@ -54,7 +54,7 @@ My best model was a Recurrent Neural Network(RNN). RNN is well suited to data th
 
 # The Front Page Report
 
-![img2](newspaper-973048_1920.jpg)
+![img2](images/newspaper-973048_1920.jpg)
 
 To demonstrate my RNN's utility, I created a Python class: front_page. 
 
@@ -67,6 +67,7 @@ Fetches headlines currently on the source's front page and returns them as a lis
 
 ##### 2) details
 Returns a report which contains:
+
     * each headline currently on the source's front page
     * a list of emotions present in each headline, as predicted by my model
     * valence of the words contained in each headline, predicted by VADER
