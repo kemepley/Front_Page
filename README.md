@@ -12,7 +12,7 @@ Front Page is a tool that classifies headlines based on the emotions they convey
 
 Headlines are designed to grab readers' attention so that they'll read articles and keep coming back for more content.
 
-The most effective way to get our attention is to make us feel something: afraid, angry, surprised, delighted. When we experience emotions, we experience a cascade of automatic physiological and cognitive changes, and changes in the direction of our attention are chief among these (Brady). Typically, the more intense the emotion, the stronger these effects will be. 
+The most effective way to get our attention is to make us feel something: afraid, angry, surprised, delighted. When we experience emotions, we experience a cascade of automatic physiological and cognitive changes that prepare us for action, and changes in the direction of our attention are chief among these (Brady 2014). Typically, the more intense the emotion, the stronger these effects will be. 
 
 ![img2](images/john-schnobrich-FlPc9_VocJ4-unsplash.jpg)
 
@@ -24,7 +24,7 @@ News and media providers have an interest in finding a balance of emotions on th
 
 # The Data
 
-For this project, I analyzed a set of 1250 [headlines](http://web.eecs.umich.edu/~mihalcea/affectivetext/)). 
+For this project, I analyzed a set of 1,250 [headlines](http://web.eecs.umich.edu/~mihalcea/affectivetext/). 
 
 According to the dataset's authors, the headlines were collected from a variety of news sources. For each headline, annotators assigned an intensity rating between 0 and 100 for six emotion categories: anger, disgust, fear, joy, sadness, and surprise. 0 indicates that the emotion is not present. 100 indicates that it is present in its max intensity. Annotators were instructed to assign ratings according to their first intuition about the emotional import of the headlines, taking into account both the emotion-evoking words in the text and the overall impact of the it (Strapparava and Mihalcea 2007, p. 2-3).
 
@@ -47,9 +47,9 @@ I also looked at the most common words in the dataset, the most common word pair
 
 Predicting emotions is a multilabel classification problem. Instead of predicting a single class out of two or more options as multi*class* models do, multilabel models make two or more independent predictions--one for each label. 
 
-I tried various multilabel classifiers from the skmultilearn package paired with a variety of estimators. In choosing a multilabel classifier, it matters whether there is correlation among labels. There is strong correlation (65%) between disgust and anger and moderate correlation between several other labels. To test whether modeling would improve with a classifier that takes label correlation into account, I compared a Binary Relevance Classifier with a Classifier Chain. Binary Relevance Classifiers model each label independently. Classifier Chains also model each label, but pass label predictions from one model to the next. The two Classifiers performed similarly in terms of their overall scores (Jaccard Score, Hamming Loss), but the Classifier Chain had notably greater success in predicting disgust.
+I tried various multilabel classifiers from the skmultilearn package paired with a variety of estimators. In choosing a multilabel classifier, it matters whether there is correlation among labels. There is strong correlation (65%) between disgust and anger and moderate correlation between several other labels. To test whether modeling would improve with a classifier that takes label correlations into account, I compared a Binary Relevance Classifier with a Classifier Chain. Binary Relevance Classifiers model each label independently. Classifier Chains also model each label, but pass label predictions from one model to the next. The two classifiers performed similarly in terms of their overall scores (Jaccard Score, Hamming Loss), but the Classifier Chain had notably greater success in predicting disgust.
 
-My best model was a Recurrent Neural Network(RNN). RNN is well suited to data that is sequential because it utilizes Long Short Term Memory(LSTM) to retain information from previously seen data. This allows it to learn features of emotion language (syntax, context) that other models that rely on Bag-of-Words representations of text cannot.  
+My best model was a Recurrent Neural Network(RNN). RNN is well suited to data that is sequential because it utilizes Long Short Term Memory(LSTM) to retain information from previously seen data. This allows it to learn features of emotion language (syntax, context) that other models which rely on Bag-of-Words representations of text cannot.  
 
 
 # The Front Page Report
