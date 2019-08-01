@@ -26,7 +26,7 @@ News and media providers have an interest in finding a balance of emotions on th
 
 For this project, I analyzed a set of 1,250 [headlines](http://web.eecs.umich.edu/~mihalcea/affectivetext/). 
 
-According to the dataset's authors, the headlines were collected from a variety of news sources. For each headline, annotators assigned an intensity rating between 0 and 100 for six emotion categories: anger, disgust, fear, joy, sadness, and surprise. 0 indicates that the emotion is not present. 100 indicates that it is present in its max intensity. Annotators were instructed to assign ratings according to their first intuition about the emotional import of the headlines, taking into account both the emotion-evoking words in the text and the overall impact of the it (Strapparava and Mihalcea 2007, p. 2-3).
+According to the dataset's authors, the headlines were collected from a variety of news sources. For each headline, annotators assigned an intensity rating between 0 and 100 for six emotion categories: anger, disgust, fear, joy, sadness, and surprise. 0 indicates that the emotion is not present. 100 indicates that it is present in its maximum intensity. Annotators were instructed to assign ratings according to their first intuition about the emotional import of the headlines, taking into account both the emotion-evoking words in the text and the overall impact of the it (Strapparava and Mihalcea 2007, p. 2-3).
 
 The dataset also came with a second set of labels with overall positive or negative valence ratings.
 
@@ -34,7 +34,7 @@ It's important to acknowelge that annotating emotions in text is a difficult tas
 
 The headlines in the dataset have an average length of six words and a maximum length of 15. The most common emotion (in any amount) is surprise and the most common maximum emotion rating is joy. Disgust is the least common, and also has the lowest average intensity.
 
-I checked the headlines for presence of emotion words from the WordNet emotion lexicon and the positive and negative words from the General Inquirer lexicon. Just over 100 of the headlines contained words from the emotion lexicon and just under half of the headlines contained words from the positive and negative words lexicon. 
+I checked the headlines for presence of emotion words from the [WordNet](https://wordnet.princeton.edu) emotion lexicon and the positive and negative words from the [General Inquirer](http://www.wjh.harvard.edu/~inquirer/) lexicon. Just over 100 of the headlines contained words from the emotion lexicon and just under half of the headlines contained words from the positive and negative words lexicon. 
 
 Of the headlines with words appearing in the emotion lexicon, the emotion labels matched 85% of the time. However, less than 10% of the data contained words from the lexicon and the vast majority are rated above zero for one or more emotions.  
 
@@ -67,7 +67,6 @@ Fetches headlines currently on the source's front page and returns them as a lis
 
 ##### 2) details
 Returns a report which contains:
-
     * each headline currently on the source's front page
     * a list of emotions present in each headline, as predicted by my model
     * valence of the words contained in each headline, predicted by VADER
@@ -83,17 +82,19 @@ Returns only the summary information from the report.
 
 # Works Cited 
 
-1. Berger, J. 2011. Arousal increases social transmission of information. Psychological Science 22.7, 891–893.
+1. Berger, J. (2011). Arousal increases social transmission of information. Psychological Science 22.7, 891–893.
 
-2. Brady, M. S. 2014.  Emotion, Attention, and the Nature of Value,’ in S. Roeser and C. Todd (eds) Emotion and Value. Oxford: Oxford University Press, 52– 71.
+2. Brady, M. S. (2014). Emotion, Attention, and the Nature of Value,’ in S. Roeser and C. Todd (eds) Emotion and Value. Oxford: Oxford University Press, 52– 71.
 
-3. Ferrara E. and Yang, Z. 2015. Quantifying the effect of sentiment on information diffusion in social media, PeerJ Computer Science 1.26. 
+3. Ferrara E. & Yang, Z. (2015). Quantifying the effect of sentiment on information diffusion in social media, PeerJ Computer Science 1.26. 
 
-4. Gaspar, R., Pedro, C., Panagiotopoulos, P., & Seibt, B. 2016. Beyond positive or negative: Qualitative sentiment analysis of social media reactions to unexpected stressful events. Computers in Human Behavior 56, 179-191.
+4. Gaspar, R., Pedro, C., Panagiotopoulos, P., & Seibt, B. (2016). Beyond positive or negative: Qualitative sentiment analysis of social media reactions to unexpected stressful events. Computers in Human Behavior 56, 179-191.
 
-5. Stefan Stieglitz & Linh Dang-Xuan. 2013. Emotions and Information Diffusion in Social Media—Sentiment of Microblogs and Sharing Behavior, Journal of Management Information Systems 29.4, 217-248.
+5. Hutto, C.J. & Gilbert, E.E. (2014). VADER: A Parsimonious Rule-based Model for Sentiment Analysis of Social Media Text. Eighth International Conference on Weblogs and Social Media (ICWSM-14). Ann Arbor, MI, June 2014.
 
-6. Strapparava, C. and Mihalcea, R. 2007. SemEval-2007 Task 14: Affective Text. https://www.aclweb.org/anthology/S07-1013.
+6. Stieglitz, S. & Dang-Xuan, L. (2013). Emotions and Information Diffusion in Social Media—Sentiment of Microblogs and Sharing Behavior, Journal of Management Information Systems 29.4, 217-248.
+
+7. Strapparava, C. & Mihalcea, R. (2007). SemEval-2007 Task 14: Affective Text. https://www.aclweb.org/anthology/S07-1013.
 
 
 
