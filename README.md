@@ -6,6 +6,31 @@
 ![img1](images/personal-2923048_1920.jpg)
 
 Front Page is a tool that classifies headlines based on the emotions they convey. Based on research on the kinds of social media interactions different emotions garner, it's designed to help news media outlets maintain the right combinations of headlines to keep readers interested in their content. 
+
+# Repo Contents
+
+ - README
+Description of the project goals, process, and results
+
+ - Final Notebook
+Jupyter notebook containing the code for the model deployed in front_page. Compares the model with other modeling strategies.
+
+ - Exploratory Data Analysis
+Jupyter notebook containing exploratory data analysis, including examination of label distributions, word distrubtions among the labels, and the presence of words from the WordNet Affect lexicon.
+
+ - Front Page Presentation
+Slide deck describing the project in brief
+
+ - class_front_page
+Py file containing the code for front_page
+
+ - Assorted py files
+Code used to clean and process data
+
+ - Folders
+     - Notebooks: Notebooks used at various points in the development process 
+     - Model: h5 file with the saved model
+     - Images: images used in the repo
  
 
 # Background
@@ -65,10 +90,10 @@ Fetches headlines currently on the source's front page and returns them as a lis
 
 ##### 2) details
 Returns a report which contains:
-    * each headline currently on the source's front page
-    * a list of emotions present in each headline, as predicted by my model
-    * valence of the words contained in each headline, predicted by VADER
-    * summay information
+ - each headline currently on the source's front page
+ - a list of emotions present in each headline, as predicted by my model
+ - valence of the words contained in each headline, predicted by VADER
+ - summay information
     
 VADER is a model built on a sophisticated lexicon of positive and negative word, where each word has an intensity rating produced by 20 highly vetted annotators. The VADER's sentiment intensity analyzer produces a report of a document's polarity in the form of a python dictionary. The dictionary keys are: 'pos' for positive words, 'neg' for negative words, 'neu' for neutral words, and 'compound' for the overall polarity. The values assigned to each of the first three are the percentages of words containing positive, negative, or neutral valence (of any amount) in each headline. The compound score is a sum of the intensity scores for all the words in the headline. The sum is normalized so that every score is a number between -1 and 1. 
 
