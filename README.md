@@ -5,7 +5,7 @@
 
 ![img1](images/personal-2923048_1920.jpg)
 
-Front Page is a tool that classifies headlines based on the emotions they convey. It's designed to help news media outlets maintain the right combinations of headlines to keep readers interested in their content. 
+Front Page is a tool that classifies headlines based on the emotions they convey. Based on research on the kinds of social media interactions different emotions garner, it's designed to help news media outlets maintain the right combinations of headlines to keep readers interested in their content. 
  
 
 # Background
@@ -37,8 +37,6 @@ The headlines in the dataset have an average length of six words and a maximum l
 I checked the headlines for presence of emotion words from the [WordNet](https://wordnet.princeton.edu) emotion lexicon and the positive and negative words from the [General Inquirer](http://www.wjh.harvard.edu/~inquirer/) lexicon. Just over 100 of the headlines contained words from the emotion lexicon and just under half of the headlines contained words from the positive and negative words lexicon. 
 
 Of the headlines with words appearing in the emotion lexicon, the emotion labels matched 85% of the time. However, less than 10% of the data contained words from the lexicon and the vast majority are rated above zero for one or more emotions.  
-
-There was low correspondence between the positive and negative words lexicon and the valence labels, which matched only 58% of the time.
 
 I also looked at the most common words in the dataset, the most common word pairs, and the most common words for each label. See the results in the notebook titled "Exploratory_Data_Analysis."
 
@@ -72,7 +70,9 @@ Returns a report which contains:
     * valence of the words contained in each headline, predicted by VADER
     * summay information
     
-I included VADER's valence predictions in my reports as some additional helpful information about the headline. This would be particularly useful, for example, when my model predicts all 6 emotion categories. The valence rating will give users an indication of whether the overall thrust of the headline is positive or negative.
+VADER is a model built on a sophisticated lexicon of positive and negative word, where each word has an intensity rating produced by 20 highly vetted annotators. The VADER's sentiment intensity analyzer produces a report of a document's polarity in the form of a python dictionary. The dictionary keys are: 'pos' for positive words, 'neg' for negative words, 'neu' for neutral words, and 'compound' for the overall polarity. The values assigned to each of the first three are the percentages of words containing positive, negative, or neutral valence (of any amount) in each headline. The compound score is a sum of the intensity scores for all the words in the headline. The sum is normalized so that every score is a number between -1 and 1. 
+
+I included VADER's valence predictions in my reports as some additional helpful information about the headlines. This would be particularly useful, for example, when my model predicts all 6 emotion categories. The valence ratings will give users an indication of whether the overall thrust of the headline is positive or negative.
 
 For more details on VADER, see [here](https://github.com/cjhutto/vaderSentiment)
 
