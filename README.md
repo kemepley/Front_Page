@@ -9,25 +9,25 @@ Front Page is a tool that classifies headlines based on the emotions they convey
 
 # Repo Contents
 
- - README
+ - README:
 Description of the project goals, process, and results
 
- - Final Notebook
+ - Final Notebook:
 Jupyter notebook containing the code for the model deployed in front_page. Compares the model with other modeling strategies.
 
- - Exploratory Data Analysis
+ - Exploratory Data Analysis:
 Jupyter notebook containing exploratory data analysis, including examination of label distributions, word distrubtions among the labels, and the presence of words from the WordNet Affect lexicon.
 
- - Front Page Presentation
+ - Front Page Presentation:
 Slide deck describing the project in brief
 
- - class_front_page
+ - class_front_page:
 Py file containing the code for front_page
 
- - Assorted py files
+ - Assorted py files:
 Code used to clean and process data
 
- - Folders
+ - Folders:
      - Notebooks: Notebooks used at various points in the development process 
      - Model: h5 file with the saved model
      - Images: images used in the repo
