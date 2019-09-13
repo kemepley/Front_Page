@@ -16,7 +16,7 @@ Description of the project goals, process, and results
 Jupyter notebook containing the code for the model deployed in front_page. Compares the model with other modeling strategies.
 
  - Exploratory Data Analysis:
-Jupyter notebook containing exploratory data analysis, including examination of label distributions, word distrubtions among the labels, and the presence of words from the WordNet Affect lexicon.
+Jupyter notebook containing examination of label distributions, word distrubtions among the labels, and the presence of words from the WordNet Affect lexicon.
 
  - Front Page Presentation:
 Slide deck describing the project in brief
